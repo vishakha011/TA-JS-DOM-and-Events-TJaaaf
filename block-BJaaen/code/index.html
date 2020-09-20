@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper and Scissor game</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <h1 class="heading text-center">Rock Paper Scissors Lizard Spock</h1>
+      </div>
+      
+      <div class="player-container" id="player">
+        <h2 class="score">You - <span id="display-player-score">0</span>
+          <span class="selected-player-icon"></span>
+        </h2>
+
+        <div class="player-icons flex-between">
+          <i class="far fa-hand-rock player-select" data-picked ="rock"></i>
+          <i class="far fa-hand-paper player-select" data-picked ="paper"></i>
+          <i class="far fa-hand-scissors player-select" data-picked ="scissors"></i>
+          <i class="far fa-hand-lizard player-select" data-picked ="lizard"></i>
+          <i class="far fa-hand-spock player-select" data-picked ="spock"></i>
+        </div>
+         
+      </div>
+
+      
+      <div class="player-container" id="computer">
+        <h2 class="score">Computer - <span id="display-computer-score">0</span>
+          <span class="selected-computer-icon"></span>
+        </h2>
+        
+        <div class="computer-icons flex-between">
+          <i class="far fa-hand-rock" data-picked = "rock"></i>
+          <i class="far fa-hand-paper" data-picked ="paper"></i>
+          <i class="far fa-hand-scissors" data-picked ="scissors"></i>
+          <i class="far fa-hand-lizard" data-picked ="lizard"></i>
+          <i class="far fa-hand-spock" data-picked ="spock"></i> 
+        </div>
+       
+      </div>
+
+      <i class="reset fas fa-sync-alt"></i>
+      <div class="result text-center"></div>
+    </div>
+
+    
+    <script src="./script.js"></script>
+    <script src="https://kit.fontawesome.com/593a9cd241.js" crossorigin="anonymous"></script>
+  </body>
+</html>
