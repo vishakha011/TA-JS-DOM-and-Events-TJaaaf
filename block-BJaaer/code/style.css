@@ -91,3 +91,21 @@ input[type='text'] {
 .terms {
   display: inline-block;
 }
+
+.user-info-container {
+  display: none;
+  max-width: 400px;
+  margin: 2rem auto;
+  background: white;
+  padding: 1rem;
+
+}
+
+.fas {
+  color: tomato;
+  float: right;
+}
+
+.agree {
+  text-decoration: underline;
+}
