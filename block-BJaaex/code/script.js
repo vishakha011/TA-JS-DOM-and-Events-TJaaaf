@@ -1,58 +1,85 @@
-// 1. Change the title of the page to `Hello AltCampus!`
+let container = document.querySelector(".container");
+let characters = ['crow', 'cat', 'dog', 'dragon', 'fish', 'hippo', 'frog', 'paw']
 
-// 2. Select the element using the children property:
+let count = 0;
+let selectedElms = [];
 
-//    - Select the `h1` element and change the value to `Learning DOM`
+function randomMix(characters = []) {
+    let data = characters.concat(characters);
+    data.sort(() => Math.random() - 0.5);
 
-//    - Select the first `li` element inside the `ul` with class `topics` and change the innerText to `all about document`
-//    - Select the input element with name `email`
+    return data;
+}
 
-// 3. Log the number (using console.log) of children of all the `li` element inside the ul with class `topics`
 
-// 4. Select the first input using the `type` selector and store them in variable named `emailInput`
+function createBox(char) {
+  let div = document.createElement("div");
+  div.classList.add("box", "hidden");
+  div.setAttribute('data-type', char)
+  let i = document.createElement("i");
+  i.classList.add("fas", `fa-${char}`)
+  div.append(i);
 
-// 5. Select the ul element using class selector and store in `topics`
+  return div;
+}
 
-// 6. Select the first label element and store in `label`
+randomMix(characters).forEach((char) => 
+container.append(createBox(char))
+);
 
-// 7. Select the input of type `checkbox` with the `id` selector and store in `inputCheckbox`
 
-// 8. Select the input of type password using Attribute selectors. (eg: input[type="text"]) and store in `password`
+function handleClick(event) {
+  let target = event.target;
+  if (target.classList.contains("box") || target.classList.contains("fas")) {
 
-// 9. Select the input using the placeholder attribute selector with value `password` and store in `attrPassword`
+    count += 1;
 
-// 10. Select all the `li` element and store in `allTopics`
+    if(target.classList.contains("box")) {
+        target.classList.remove("hidden");
+        target.classList.add("selected");
+        selectedElms.push(target);
 
-// 11. Select all the input element of any type and store in `allInput`
+    } else {
+        target.parentElement.classList.remove('hidden');
+        target.parentElement.classList.add('selected');
+        selectedElms.push(target.parentElement);
+    }
 
-// 12. Use forEach to console the `innerText` property of all the li element in `allTopics` variable.
+    matchOrNot();
+ }
 
-// 13. Select all the elements with class `list` and store in variable `listOfSelectedTopics`
+}
 
-// 14. Select the first li element inside the `ul` element using `>` (direct child) and store in `firstLi`
+function disableHidden(root) {
+    root.querySelectorAll('.hidden').forEach(elm => elm.classList.add('disabled'))
+}
 
-// 15. Select all the img element and log the number of element saying `The total number of img element is ---`
+function enableHidden(root) {
+    root.querySelectorAll('.hidden').forEach(elm => elm.classList.remove('disabled'))
+}
 
-// 16. Select all the `p` element and store in `allPElement`
+function matchSelected(elms) {
+    let types = elms.map(elm => elm.dataset.type);
+    if(types[0] == types[1]) {
+        elms.forEach((elm) => elm.classList.add('success'));
+        enableHidden(container)
+    } else {
+        elms.forEach((elm) => elm.classList.add('error'));
+        setTimeout(() => {
+            elms.forEach((elm) => elm.classList.add('hidden'));
+            elms.forEach((elm) => elm.classList.remove('error', 'selected'))
+        } , 1000)
+    }
+    enableHidden(container)
+}
 
-// 17. Select all the buttons and log the count of buttons.
+function matchOrNot() {
+    if(count == 2) {
+        disableHidden(container);
+        matchSelected(selectedElms)
+        count = 0;
+        selectedElms = [];
+    }
+}
 
-// 18. Select all the `label` element and log the count.
-
-// 19. Select all the elements with `id` of `test`
-
-// 20. Select the first element with id `test` using `getElementById`
-
-// 21. Select the parent element of the element stored in `topics` variable (#5) and log the element.
-
-// 22. Select the next element sibling of the element stored in `topics` variable (#5) and log the element.
-
-// 23. Select the previous element sibling of the element stored in `topics` variable (#5) and change the `innerText` property to `Learning About Walking the DOM`.
-
-// 24. Select the first element child of the element stored in `topics` variable (#5) and change the `innerText` property of the element to `This is the first child element`.
-
-// 25. Select the last element child of the element stored in `topics` variable (#5) and log the `typeof` the element.
-
-// 26. Select the element with type `fieldset` and store in a variable named `fieldsetElm`.
-
-// 27. Select the parent element of the element stored in `fieldsetElm` variable (#5) and log the `typeof` the element.
+container.addEventListener("click", handleClick);
