@@ -1,0 +1,197 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ====================================================== 
+CUSTOM STYLES
+======================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    /* background-color: #013A6B; */
+    background-image: linear-gradient(45deg, #FB7677 50%, #585CE1 50%);
+    min-height: 720px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 500px;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px 0px #ece5e5;
+	margin-top: 10rem;
+	background-color: seashell;
+}
+
+.heading {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 1rem 0 1.8rem;
+    background: -webkit-linear-gradient(45deg, #585CE1 50%,  #FB7677 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-list-ul {
+    font-size: 1.7rem;
+    margin-right: 0.5rem;
+}
+
+.todos {
+	padding: 1.5rem;
+	width: 100%;
+	background-color: seashell;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    box-shadow: 0px 0px 8px darkseagreen;
+    margin-bottom: 1.2rem;
+    
+}
+
+
+::placeholder {
+	font-size: 1.2rem;
+	color: #999;
+}
+
+.fa-times {
+	float: right;
+	color: #FB7677;
+	font-size: 1.2rem;
+}
+
+
+.task {
+	box-shadow: 0px 0px 8px darkseagreen;
+	padding: 1rem;
+	margin: 1rem 0;
+	border-radius: 5px;
+    font-size: 1.2rem;
+    position: relative;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+p {
+    font-size: 1.4rem;
+    margin-left: 0.8rem;
+    display: inline-block;
+    color: #272727;
+}
+
+.sub-div {
+    display: flex;
+    align-items: center;
+}
+
+
+.checkbox {
+    /* display: none; */
+    width: 1.4rem;
+    height: 1.4rem;
+    background-color: #585CE1;
+    border-radius: 50px;
+    -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}
+
+.checkbox:checked::after {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free"; 
+    content: "\f00c";
+    font-size: 0.8rem;
+    font-weight: 900;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    color: #FB7677;
+}
+
+.checkbox:checked ~p {
+    text-decoration-color: #26c240;
+    opacity: 0.7;
+    color: #585962;
+    text-decoration: line-through;
+}
+
+.all-buttons {
+    color: #272727;
+}
+
+.filters {
+    display: flex;
+}
+
+li {
+    /* justify-content: space-evenly; */
+    margin-right: 0.4rem;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #272727;
+    font-family: 'Noto Sans JP', sans-serif;
+}
